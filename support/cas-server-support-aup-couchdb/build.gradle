@@ -1,16 +1,15 @@
 description = "Apereo CAS AUP CouchDb Support"
 dependencies {
-    api project(":api:cas-server-core-api-ticket")
     api project(":api:cas-server-core-api-authentication")
+    api project(":api:cas-server-core-api-ticket")
 
-    implementation project(":core:cas-server-core-webflow")
-    implementation project(":core:cas-server-core-web-api")
-    implementation project(":core:cas-server-core-util-api")
     implementation project(":core:cas-server-core-authentication-api")
     implementation project(":core:cas-server-core-configuration-api")
+    implementation project(":core:cas-server-core-util-api")
+    implementation project(":core:cas-server-core-web-api")
+    implementation project(":core:cas-server-core-webflow")
     implementation project(":support:cas-server-support-aup-core")
     implementation project(":support:cas-server-support-couchdb-core")
-    implementation project(":core:cas-server-core-authentication-api")
 
     api libraries.ektorp
 
