@@ -10,7 +10,6 @@ import org.apereo.cas.ticket.registry.TicketRegistrySupport;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.ektorp.CouchDbConnector;
-import org.ektorp.CouchDbInstance;
 import org.ektorp.impl.ObjectMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -48,24 +47,6 @@ public class CasAcceptableUsagePolicyCouchDbConfiguration {
     @Autowired
     @Qualifier("aupCouchDbRepository")
     private ProfileCouchDbRepository profileCouchDbRepository;
-
-    @Autowired
-    @Qualifier("aupCouchDbConnector")
-    private CouchDbConnector couchDbConnector;
-
-    @ConditionalOnMissingBean(name = "aupCouchDbInstance")
-    @RefreshScope
-    @Bean
-    public CouchDbInstance aupCouchDbInstance() {
-        return aupCouchDbFactory.getCouchDbInstance();
-    }
-
-    @ConditionalOnMissingBean(name = "aupCouchDbConnector")
-    @RefreshScope
-    @Bean
-    public CouchDbConnector aupCouchDbConnector() {
-        return aupCouchDbFactory.getCouchDbConnector();
-    }
 
     @ConditionalOnMissingBean(name = "aupCouchDbFactory")
     @Bean
